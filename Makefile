@@ -18,6 +18,11 @@ else
 endif
 
 
+.PHONY: run
+run: 
+	go run main.go
+
+
 .PHONY: build
 build: clean
 	go build -o ./bin/${BIN_FILENAME} ./cmd
