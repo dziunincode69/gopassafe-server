@@ -5,8 +5,11 @@ import (
 	app "github.com/dziunincode69/gopassafe-server/internal/application"
 )
 
+const PORT = 8899
+
 func main() {
-	us := &app.UserService{}
-	grpcAdapter := usergrpc.NewGrpcAdapter(us, 9999)
+	userappservice := &app.UserService{}
+	vaultappservice := &app.VaultService{}
+	grpcAdapter := usergrpc.NewGrpcAdapter(userappservice, vaultappservice, PORT)
 	grpcAdapter.Run()
 }
